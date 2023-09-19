@@ -58,4 +58,21 @@ public class Tests
         Assert.IsFalse(Minesweeper.Minesweeper.CheckInput(field, playerGuess));
     }
 
+    [TestMethod]
+    public void TestMethodCheckVictoryCondition()
+    {
+        var field = new Minefield();
+
+        //set the bombs...
+        field.SetBomb(0, 0);
+        field.SetBomb(0, 1);
+        field.SetBomb(1, 1);
+        field.SetBomb(1, 4);
+        field.SetBomb(4, 2);
+
+        field.SetMineFieldDisplay();
+        field.UncoverAllNonBombSpaces();
+        Assert.IsTrue(field.CheckIfAllBombsUncovered());
+    }
+
 }

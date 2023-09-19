@@ -116,4 +116,18 @@ public class Minefield
         }
         return true;
     }
+
+    public void UncoverAllNonBombSpaces() //Only for testing purposes
+    {
+        for (int i = 0; i < mineFieldState.GetLength(0); i++)
+        {
+            for (int j = 0; j < mineFieldState.GetLength(1); j++)
+            {
+                if (mineFieldState[i, j] == "?" && _bombLocations[i, j] == false)
+                {
+                    mineFieldState[i, j] = solutionState[i, j];
+                }
+            }
+        }
+    }
 }

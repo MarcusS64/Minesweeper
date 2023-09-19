@@ -3,7 +3,7 @@ using System.Diagnostics.Metrics;
 
 namespace Minesweeper;
 
-public class Minesweeper
+public class Minesweeper //Made public for the unitTests (can be private without)
 {
     //private static string playerGuess;
     private static int coordinate;
@@ -48,15 +48,16 @@ public class Minesweeper
                 DrawMineFieldState(field);
                 Console.WriteLine("You found a bomb! Game over");
                 gameOver = true;
-            }
-            else if(field.CheckIfAllBombsUncovered())
-            {                
-                Console.WriteLine("All bombs uncovered... Victory!");
-                gameOver = true;
-            }
+            }            
             else
             {                
                 field.UpdateMineFieldDisplay(position[0], position[1]);
+            }
+
+            if (field.CheckIfAllBombsUncovered())
+            {
+                Console.WriteLine("All bombs uncovered... Victory!");
+                gameOver = true;
             }
 
         }       
