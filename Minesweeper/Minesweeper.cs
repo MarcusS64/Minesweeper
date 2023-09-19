@@ -5,7 +5,6 @@ namespace Minesweeper;
 
 public class Minesweeper //Made public for the unitTests (can be private without)
 {
-    //private static string playerGuess;
     private static int coordinate;
     private static int[] position = new int[2];
     static void Main()
@@ -28,12 +27,12 @@ public class Minesweeper //Made public for the unitTests (can be private without
         //0|X31
 
         // Game code...
-        field.SetMineFieldDisplay();
+        field.SetMinefieldMap();
         bool gameOver = false;
         while (!gameOver)
         {
             
-            DrawMineFieldState(field);
+            DrawMinefieldState(field);
             string playerGuess;
             do
             {
@@ -44,14 +43,14 @@ public class Minesweeper //Made public for the unitTests (can be private without
 
             if (field.FoundBomb(position[0], position[1]))
             {
-                field.UpdateMineFieldDisplay(position[0], position[1]);
-                DrawMineFieldState(field);
+                field.UpdateMinefieldMap(position[0], position[1]);
+                DrawMinefieldState(field);
                 Console.WriteLine("You found a bomb! Game over");
                 gameOver = true;
             }            
             else
             {                
-                field.UpdateMineFieldDisplay(position[0], position[1]);
+                field.UpdateMinefieldMap(position[0], position[1]);
             }
 
             if (field.CheckIfAllBombsUncovered())
@@ -63,7 +62,7 @@ public class Minesweeper //Made public for the unitTests (can be private without
         }       
     }
 
-    public static void DrawMineFieldState(Minefield field)
+    public static void DrawMinefieldState(Minefield field)
     {
         int rowIndex = 4;
         Console.WriteLine("The new game state is: ");
@@ -73,7 +72,7 @@ public class Minesweeper //Made public for the unitTests (can be private without
             Console.Write(rowIndex + "|");
             for (int i = 0; i < field.GetRowLength(); i++)
             {
-                Console.Write(field.mineFieldState[i, rowIndex]);
+                Console.Write(field.minefieldState[i, rowIndex]);
             }
             rowIndex--;
             Console.Write("\n");

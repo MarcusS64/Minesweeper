@@ -18,7 +18,7 @@ public class Tests
         field.SetBomb(1, 4);
         field.SetBomb(4, 2);
 
-        field.SetMineFieldDisplay();
+        field.SetMinefieldMap();
         string playerGuess = "05";
         Assert.IsFalse(Minesweeper.Minesweeper.CheckInput(field, playerGuess));
     }
@@ -35,7 +35,7 @@ public class Tests
         field.SetBomb(1, 4);
         field.SetBomb(4, 2);
 
-        field.SetMineFieldDisplay();
+        field.SetMinefieldMap();
         string playerGuess = "0a";
         Assert.IsFalse(Minesweeper.Minesweeper.CheckInput(field, playerGuess));
     }
@@ -52,8 +52,8 @@ public class Tests
         field.SetBomb(1, 4);
         field.SetBomb(4, 2);
 
-        field.SetMineFieldDisplay();
-        field.UpdateMineFieldDisplay(4, 0);
+        field.SetMinefieldMap();
+        field.UpdateMinefieldMap(4, 0);
         string playerGuess = "40";
         Assert.IsFalse(Minesweeper.Minesweeper.CheckInput(field, playerGuess));
     }
@@ -70,7 +70,7 @@ public class Tests
         field.SetBomb(1, 4);
         field.SetBomb(4, 2);
 
-        field.SetMineFieldDisplay();
+        field.SetMinefieldMap();
         field.UncoverAllNonBombSpaces();
         Assert.IsTrue(field.CheckIfAllBombsUncovered());
     }
