@@ -3,9 +3,9 @@ using System.Diagnostics.Metrics;
 
 namespace Minesweeper;
 
-class Minesweeper
+public class Minesweeper
 {
-    private static string playerGuess;
+    //private static string playerGuess;
     private static int coordinate;
     private static int[] position = new int[2];
     static void Main()
@@ -34,13 +34,13 @@ class Minesweeper
         {
             
             DrawMineFieldState(field);
-
+            string playerGuess;
             do
             {
                 Console.WriteLine("Which position do you with to uncover?");
                 playerGuess = Console.ReadLine();
 
-            } while (!CheckInput(field));
+            } while (!CheckInput(field, playerGuess));
 
             if (field.FoundBomb(position[0], position[1]))
             {
@@ -80,7 +80,7 @@ class Minesweeper
         }
     }
 
-    public static bool CheckInput(Minefield field)
+    public static bool CheckInput(Minefield field, string playerGuess)
     {
         if (playerGuess.Length != 2)
         {

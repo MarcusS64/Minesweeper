@@ -2,7 +2,7 @@
 
 namespace Minesweeper;
 
-class Minefield
+public class Minefield
 {
     private bool[,] _bombLocations = new bool[5, 5];
     public string[,] mineFieldState = new string[5, 5];
